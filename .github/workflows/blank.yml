@@ -26,11 +26,17 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run a post curl
+        run: |
+        curl "https://api.todoist.com/rest/v1/projects" \
+        -X POST \
+        --data '{"name": "Shopping List"}' \
+        -H "Content-Type: application/json" \
+        -H "X-Request-Id: $(uuidgen)" \
+        -H "Authorization: Bearer 1328006e5c8ee887807ba4d2cec8bef27127e712"
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # - name: Run a multi-line script
+      #   run: |
+      #     echo Add other actions to build,
+      #     echo test, and deploy your project.

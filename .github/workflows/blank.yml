@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a post curl
         run: |
-        curl --request POST --header "Authorization: Bearer 1328006e5c8ee887807ba4d2cec8bef27127e712" --url "https://api.todoist.com/rest/v1/projects" --data '{"name": "Shopping List"}'
+        curl -X POST "https://api.todoist.com/rest/v1/projects" -H "Authorization: Bearer 1328006e5c8ee887807ba4d2cec8bef27127e712" -H "X-Request-Id: $(uuidgen)" -H "Content-Type: application/json" --data '{"name": "Shopping List"}'
       # Runs a set of commands using the runners shell
       # - name: Run a multi-line script
       #   run: |
